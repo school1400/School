@@ -358,7 +358,7 @@ function ticker(){const d=document.createElement('div');d.className='hxtkw';cons
 </script>
 <script>
 (async()=>{
-const $=i=>document.getElementById(i),APP_VER='1.6.0';
+const $=i=>document.getElementById(i),APP_VER='1.6.1';
 const MN=['فروردین','اردیبهشت','خرداد','تیر','مرداد','شهریور','مهر','آبان','آذر','دی','بهمن','اسفند'],SEA=['بهار','تابستان','پاییز','زمستان'];
 const fa=n=>String(n).replace(/\d/g,d=>'۰۱۲۳۴۵۶۷۸۹'[d]),en=s=>String(s||'').replace(/[۰-۹]/g,d=>'۰۱۲۳۴۵۶۷۸۹'.indexOf(d)).replace(/[٠-٩]/g,d=>'٠١٢٣٤٥٦٧٨٩'.indexOf(d));
 const num=s=>+en(s).replace(/[^\d]/g,'')||0,money=n=>fa(Math.round(n).toLocaleString('en-US')),esc=s=>String(s==null?'':s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
@@ -445,7 +445,7 @@ const tog='<button class="sk-toggle" data-a="sx" data-id="'+s.id+'" aria-label="
 const brief='<div class="sk-brief" dir="rtl" data-a="sx" data-id="'+s.id+'"><div class="sk-title-row"><b>'+esc(s.name)+'</b><span class="sk-nid">ش ملی: '+fd(esc(s.nid||'—'))+'</span></div><div class="sk-meta">'+esc(g?g.name:'—')+' · '+esc(c?c.name:'—')+'</div><div class="sk-status"><span class="'+st[1]+'">'+(t.tot===0?'بدون مطالبه':t.rem<=0?(t.cr>0?'طلبکار':'تسویه‌شده'):'بدهکار')+'</span></div>'+tog+'</div>';
 const extra='<div class="sk-extra"><div class="sl1">مبلغ کل: <b>'+money(t.tot)+'</b> تومان</div><div class="sl1">پرداخت‌شده: <b>'+money(t.paid)+'</b> تومان</div><div class="sl1">مانده: <b'+(t.rem>0?' class="late"':'')+'>'+money(t.rem)+'</b> تومان</div>'+(t.cr>0?'<div class="sl1">طلبکار: <b class="ok">'+money(t.cr)+'</b> تومان</div>':'')+(n>1?'<div class="sl1">اقساط تسویه‌شده: '+fa(pd)+' از '+fa(n)+'</div>':'')+(acts&&F.length?'<div class="sk-acts">'+(t.rem>0?'<button class="msb gbt" data-a="rcvauto" data-id="'+s.id+'">دریافت اقساط</button>':'')+'<button class="msb" data-a="debtedit" data-id="'+s.id+'">ویرایش / تقسیط بدهی</button><button class="msb dlb" data-a="debtdel" data-id="'+s.id+'">حذف بدهی</button>'+(t.cr>0?'<button class="msb" data-a="refund" data-id="'+s.id+'">عودت</button>':'')+'</div>':'')+(o?insList(s,acts):'')+'</div>';
 return'<div class="sk" data-id="'+s.id+'"'+(o?'':' data-a="sx"')+'>'+brief+(o?extra:'')+'</div>'}
-const CONTACT={tel:'09361239027',email:'',bale:'',eitaa:'',rubika:''};
+const CONTACT={tel:'09361239027',email:'',bale:'@mahdi28884',eitaa:'Mahdi288884',rubika:''};
 function setContact(){const r=(l,v,u)=>v?'<div class="sc"><div class="scr"><b>'+l+'</b><a href="'+u+'" dir="ltr" target="_blank" rel="noopener">'+esc(v)+'</a></div></div>':'';$('s_contact').innerHTML=r('تلفن تماس',CONTACT.tel,'tel:'+CONTACT.tel)+r('ایمیل',CONTACT.email,'mailto:'+CONTACT.email)+r('بله',CONTACT.bale,'https://ble.ir/'+CONTACT.bale.replace('@',''))+r('ایتا',CONTACT.eitaa,'https://eitaa.com/'+CONTACT.eitaa.replace('@',''))+r('روبیکا',CONTACT.rubika,'https://rubika.ir/'+CONTACT.rubika.replace('@',''))}
 const headLocked=(h,t)=>(t==='i'&&h==='شهریه')||(t==='e'&&h===PAYS);
 const headUse=(h,t)=>t==='i'?S.fees.some(f=>f.head===h):S.exp.some(x=>x.head===h);
